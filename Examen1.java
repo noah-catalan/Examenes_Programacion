@@ -27,13 +27,22 @@ public class Main {
             num2=x;
         }
         int contador = 0;
-        for(int i=num1+1; i<=num2; i++){
+        for(int i=num1+1; i<num2; i++){
             if(esPrimo(i)){contador++;}
 
         }
+
+        //Error n1, debería haber devuelto un array
+        // if(contador==0){return 0;}
+
+        // Corrección:
+        if(contador==0){return new int[]{0};}
+
         int[] resultado = new int[contador];
+
         int contador2 = 0;
-        for(int i=num1+1; i<=num2; i++){
+
+        for(int i=num1+1; i<num2; i++){
             if(esPrimo(i)){
                 resultado[contador2] = i;
                 contador2++;
@@ -50,6 +59,10 @@ public class Main {
         return contador;
     }
 
+    
+    //Error n2: no especifico el tipo de parámetro
+    // public static int invertirNumero(num) 
+    // Corrección: 
     public static int invertirNumero(int num){
         String snum = Integer.toString(num);
         String res = "";
@@ -61,6 +74,7 @@ public class Main {
 
 
     public static void main(String[] args) {
+
 
         //Ejercicio 1
         System.out.println("La suma de los números impares entre 3 y 7 es: " + sumaImpares(3,7) + "\n");
@@ -81,5 +95,8 @@ public class Main {
         //Ejercicio 5
         System.out.println("Si invertimos el número 9823 nos quedaría el " + invertirNumero(9823) + "\n");
 
+
+
     }
+
 }
